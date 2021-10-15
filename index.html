@@ -144,6 +144,23 @@ controls.addEventListener('click', function(e) {
     img.style.left = (parseInt(img.style.left) + 10) + 'px';
   }
 });
+controls.style.width = '100%';
+controls.style.position = 'absolute';
+controls.style.bottom = '0px';
+controls.firstChild.style.width = '50%';
+controls.firstChild.style.height = '50px';
+controls.firstChild.style.position = 'absolute';
+controls.firstChild.style.left = '0px';
+controls.firstChild.style.top = '0px';
+controls.firstChild.style.transform = 'translate(-50%, -50%)';
+controls.firstChild.style.fontSize = '30px';
+controls.lastChild.style.width = '50%';
+controls.lastChild.style.height = '50px';
+controls.lastChild.style.position = 'absolute';
+controls.lastChild.style.left = '50%';
+controls.lastChild.style.top = '0px';
+controls.lastChild.style.transform = 'translate(-50%, -50%)';
+controls.lastChild.style.fontSize = '30px';
 });
         
 
