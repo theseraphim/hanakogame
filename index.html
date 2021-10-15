@@ -131,14 +131,20 @@ var text = document.createElement('div');
   text.style.top = '55%';
   text.style.transform = 'translate(-50%, -50%)';
 };
-});
-document.addEventListener('touchstart', function(e) {
-  if (e.touches.length == 1) {
+/* add controls to the bottom of the screen */
+var controls = document.createElement('div');
+controls.innerHTML = '<button>Left</button><button>Right</button>';
+document.body.appendChild(controls);
+
+/* make the buttons move the person */
+controls.addEventListener('click', function(e) {
+  if (e.target.innerHTML == 'Left') {
     img.style.left = (parseInt(img.style.left) - 10) + 'px';
-  } else if (e.touches.length == 2) {
+  } else if (e.target.innerHTML == 'Right') {
     img.style.left = (parseInt(img.style.left) + 10) + 'px';
   }
 });
+
         </script>
     </head>
     <body style="margin: 0;">
