@@ -5,7 +5,7 @@
         document.addEventListener("DOMContentLoaded", function() {
 
 var img = document.createElement('img');
-img.src = 'https://i.imgur.com/58anlqT.png';
+img.src = './images/hanako.png';
 document.body.appendChild(img);
 
 img.style.width = '100px';
@@ -33,7 +33,7 @@ setInterval(function() {
 document.body.style.overflow = 'hidden';
 
 var fire = document.createElement('img');
-fire.src = 'https://i.imgur.com/Vhg0fxC.png';
+fire.src = './images/fire.png';
 document.body.appendChild(fire);
 
 fire.style.width = '50px';
@@ -59,7 +59,7 @@ var lose = function() {
     document.body.removeChild(document.body.firstChild);
   }
   var img = document.createElement('img');
-  img.src = 'https://i.imgur.com/8MuyEVS.png';
+  img.src = './images/hanakoburned.jpg';
   document.body.appendChild(img);
 };
 
@@ -68,7 +68,7 @@ var lose = function() {
     document.body.removeChild(document.body.firstChild);
   }
   var img = document.createElement('img');
-  img.src = 'https://i.imgur.com/8MuyEVS.png';
+  img.src = './images/hanakoburned.jpg';
   document.body.appendChild(img);
   var text = document.createElement('div');
   text.innerHTML = 'you let hanako get burned';
@@ -84,21 +84,6 @@ setInterval(function() {
   }
 }, 10);
 
-var lose = function() {
-  while (document.body.firstChild) {
-    document.body.removeChild(document.body.firstChild);
-  }
-  var img = document.createElement('img');
-  img.src = 'https://i.imgur.com/8MuyEVS.png';
-  document.body.appendChild(img);
-  var text = document.createElement('div');
-  text.innerHTML = 'you let hanako get burned';
-  document.body.appendChild(text);
-  text.style.position = 'absolute';
-  text.style.left = '50%';
-  text.style.top = '50%';
-  text.style.transform = 'translate(-50%, -50%)';
-};
 
 var speed = 0;
 setInterval(function() {
@@ -106,42 +91,6 @@ setInterval(function() {
   fire.style.top = (parseInt(fire.style.top) + speed) + 'px';
 }, 10);
 
-var lose = function() {
-  while (document.body.firstChild) {
-    document.body.removeChild(document.body.firstChild);
-  }
-  var img = document.createElement('img');
-  img.src = 'https://i.imgur.com/8MuyEVS.png';
-  document.body.appendChild(img);
-  var text = document.createElement('div');
-  text.innerHTML = 'you let hanako get burned';
-  document.body.appendChild(text);
-  text.style.position = 'absolute';
-  text.style.left = '50%';
-  text.style.top = '50%';
-  text.style.transform = 'translate(-50%, -50%)';
-};
-
-var lose = function() {
-  while (document.body.firstChild) {
-    document.body.removeChild(document.body.firstChild);
-  }
-  var img = document.createElement('img');
-  img.src = 'https://i.imgur.com/8MuyEVS.png';
-  document.body.appendChild(img);
-
-img.style.position = 'absolute';
-img.style.left = '520px';
-img.style.top = '100px';
-
-  var text = document.createElement('div');
-  text.innerHTML = 'you let hanako get burned';
-  document.body.appendChild(text);
-  text.style.position = 'absolute';
-  text.style.left = '50%';
-  text.style.top = '50%';
-  text.style.transform = 'translate(-50%, -50%)';
-};
 
 window.innerWidth = 1200;
 
@@ -158,7 +107,7 @@ var lose = function() {
     document.body.removeChild(document.body.firstChild);
   }
   var img = document.createElement('img');
-  img.src = 'https://i.imgur.com/8MuyEVS.png';
+  img.src = './images/hanakoburned.jpg';
   document.body.appendChild(img);
   var text = document.createElement('div');
   text.innerHTML = 'you let hanako get burned';
