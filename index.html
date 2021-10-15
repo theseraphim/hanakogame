@@ -131,6 +131,12 @@ var text = document.createElement('div');
   text.style.top = '55%';
   text.style.transform = 'translate(-50%, -50%)';
 };
+document.addEventListener('touchstart', function(e) {
+  if (e.touches.length == 1) {
+    img.style.left = (parseInt(img.style.left) - 10) + 'px';
+  } else if (e.touches.length == 2) {
+    img.style.left = (parseInt(img.style.left) + 10) + 'px';
+  }
 });
         </script>
     </head>
