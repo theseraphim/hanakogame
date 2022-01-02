@@ -1,0 +1,180 @@
+
+<html>
+    <head>
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+
+var img = document.createElement('img');
+img.src = './images/hanako.png';
+document.body.appendChild(img);
+
+img.style.width = '100px';
+
+img.style.position = 'absolute';
+img.style.left = '400px';
+img.style.top = '550px';
+
+document.addEventListener('keydown', function(e) {
+  if (e.keyCode == 37) {
+    img.style.left = (parseInt(img.style.left) - 10) + 'px';
+  } else if (e.keyCode == 39) {
+    img.style.left = (parseInt(img.style.left) + 10) + 'px';
+  }
+});
+
+setInterval(function() {
+  if (parseInt(img.style.left) < 0) {
+    img.style.left = '0px';
+  } else if (parseInt(img.style.left) > (window.innerWidth - 100)) {
+    img.style.left = (window.innerWidth - 100) + 'px';
+  }
+}, 10);
+
+document.body.style.overflow = 'hidden';
+
+var fire = document.createElement('img');
+fire.src = './images/fire.png';
+document.body.appendChild(fire);
+
+fire.style.width = '50px';
+fire.style.height = '50px';
+
+fire.style.position = 'absolute';
+fire.style.left = Math.floor(Math.random() * (window.innerWidth - 50)) + 'px';
+fire.style.top = '0px';
+
+setInterval(function() {
+  fire.style.top = (parseInt(fire.style.top) + 1) + 'px';
+}, 10);
+
+setInterval(function() {
+  if (parseInt(fire.style.top) > (window.innerHeight - 50)) {
+    fire.style.top = '0px';
+    fire.style.left = Math.floor(Math.random() * (window.innerWidth - 50)) + 'px';
+  }
+}, 10);
+
+var lose = function() {
+  while (document.body.firstChild) {
+    document.body.removeChild(document.body.firstChild);
+  }
+  var img = document.createElement('img');
+  img.src = './images/hanakoburned.png';
+  document.body.appendChild(img);
+};
+
+var lose = function() {
+  while (document.body.firstChild) {
+    document.body.removeChild(document.body.firstChild);
+  }
+  var img = document.createElement('img');
+  img.src = './images/hanakoburned.png';
+  document.body.appendChild(img);
+  var text = document.createElement('div');
+  text.innerHTML = 'you let hanako get burned';
+  document.body.appendChild(text);
+};
+
+setInterval(function() {
+  if (fire.getBoundingClientRect().left < img.getBoundingClientRect().right &&
+      fire.getBoundingClientRect().right > img.getBoundingClientRect().left &&
+      fire.getBoundingClientRect().top < img.getBoundingClientRect().bottom &&
+      fire.getBoundingClientRect().bottom > img.getBoundingClientRect().top) {
+    lose();
+  }
+}, 10);
+
+
+var speed = 0;
+setInterval(function() {
+  speed += 0.005;
+  fire.style.top = (parseInt(fire.style.top) + speed) + 'px';
+}, 10);
+
+
+window.innerWidth = 1200;
+
+var startTime = Date.now();
+var time = document.createElement('div');
+time.innerHTML = '0';
+document.body.appendChild(time);
+setInterval(function() {
+  time.innerHTML = (Date.now() - startTime) / 1000;
+}, 10);
+
+var lose = function() {
+  while (document.body.firstChild) {
+    document.body.removeChild(document.body.firstChild);
+  }
+  var img = document.createElement('img');
+  img.src = './images/hanakoburned.png';
+  document.body.appendChild(img);
+  var text = document.createElement('div');
+  text.innerHTML = 'you let hanako get burned';
+  document.body.appendChild(text);
+  text.style.position = 'absolute';
+  text.style.left = '50%';
+  text.style.top = '50%';
+  text.style.transform = 'translate(-50%, -50%)';
+  var time = document.createElement('div');
+  time.innerHTML = (Date.now() - startTime) / 1000;
+  document.body.appendChild(time);
+  time.style.position = 'absolute';
+  time.style.left = '50%';
+  time.style.top = '60%';
+  time.style.transform = 'translate(-50%, -50%)';
+var text = document.createElement('div');
+  text.innerHTML = 'you only lasted this many seconds';
+  document.body.appendChild(text);
+  text.style.position = 'absolute';
+  text.style.left = '50%';
+  text.style.top = '55%';
+  text.style.transform = 'translate(-50%, -50%)';
+};
+/* add controls to the bottom of the screen */
+var controls = document.createElement('div');
+controls.innerHTML = '<button>Left</button><button>Right</button>';
+document.body.appendChild(controls);
+
+/* make the buttons move the person */
+controls.addEventListener('click', function(e) {
+  if (e.target.innerHTML == 'Left') {
+    img.style.left = (parseInt(img.style.left) - 10) + 'px';
+  } else if (e.target.innerHTML == 'Right') {
+    img.style.left = (parseInt(img.style.left) + 10) + 'px';
+  }
+});
+controls.style.width = '100%';
+controls.style.position = 'absolute';
+controls.style.bottom = '0px';
+controls.firstChild.style.width = '50%';
+controls.firstChild.style.height = '50px';
+controls.firstChild.style.position = 'absolute';
+controls.firstChild.style.left = '0px';
+controls.firstChild.style.top = '100px';
+controls.firstChild.style.transform = 'translate(-50%, -50%)';
+controls.firstChild.style.fontSize = '30px';
+controls.lastChild.style.width = '50%';
+controls.lastChild.style.height = '50px';
+controls.lastChild.style.position = 'absolute';
+controls.lastChild.style.left = '50%';
+controls.lastChild.style.top = '100px';
+controls.lastChild.style.transform = 'translate(-50%, -50%)';
+controls.lastChild.style.fontSize = '30px';
+});
+        
+
+
+        </script>
+    </head>
+    <body style="margin: 0;">
+        <div style="background-color: black; position: fixed; bottom: 0; width: 100%; height: 20px; padding: 20px; opacity: .85; z-index: 1000;">
+            <svg id="Layer_1" data-name="Layer 1" height="40px" width="40px" style="top: -8px;
+            position: relative;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"><defs><style>.cls-1{fill:#fff;}</style></defs><title>openai-symbol-flat-white</title><path class="cls-1" d="M617.24,354a126.36,126.36,0,0,0-10.86-103.79,127.8,127.8,0,0,0-137.65-61.32,126.36,126.36,0,0,0-95.31-42.49A127.81,127.81,0,0,0,251.5,234.89,126.4,126.4,0,0,0,167,296.19a127.82,127.82,0,0,0,15.72,149.86,126.36,126.36,0,0,0,10.86,103.79,127.81,127.81,0,0,0,137.65,61.32,126.36,126.36,0,0,0,95.31,42.49A127.81,127.81,0,0,0,548.5,565.11,126.4,126.4,0,0,0,633,503.81,127.82,127.82,0,0,0,617.24,354ZM426.58,620.49a94.79,94.79,0,0,1-60.85-22c.77-.42,2.12-1.16,3-1.7l101-58.34a16.42,16.42,0,0,0,8.3-14.37V381.69l42.69,24.65a1.52,1.52,0,0,1,.83,1.17V525.43A95.18,95.18,0,0,1,426.58,620.49ZM222.34,533.26A94.74,94.74,0,0,1,211,469.56c.75.45,2.06,1.25,3,1.79l101,58.34a16.44,16.44,0,0,0,16.59,0l123.31-71.2v49.3a1.53,1.53,0,0,1-.61,1.31L352.19,568.05A95.16,95.16,0,0,1,222.34,533.26ZM195.77,312.77a94.71,94.71,0,0,1,49.48-41.68c0,.87-.05,2.41-.05,3.48V391.25a16.41,16.41,0,0,0,8.29,14.36L376.8,476.8l-42.69,24.65a1.53,1.53,0,0,1-1.44.13l-102.11-59A95.16,95.16,0,0,1,195.77,312.77Zm350.74,81.62L423.2,323.19l42.69-24.64a1.53,1.53,0,0,1,1.44-.13l102.11,58.95a95.08,95.08,0,0,1-14.69,171.55c0-.88,0-2.42,0-3.49V408.75A16.4,16.4,0,0,0,546.51,394.39ZM589,330.44c-.75-.46-2.06-1.25-3-1.79L485,270.31a16.46,16.46,0,0,0-16.59,0l-123.31,71.2v-49.3a1.53,1.53,0,0,1,.61-1.31L447.81,232A95.07,95.07,0,0,1,589,330.44ZM321.89,418.31l-42.7-24.65a1.52,1.52,0,0,1-.83-1.17V274.57a95.07,95.07,0,0,1,155.9-73c-.77.42-2.11,1.16-3,1.7l-101,58.34a16.41,16.41,0,0,0-8.3,14.36Zm23.19-50L400,336.59l54.92,31.7v63.42L400,463.41l-54.92-31.7Z"/></svg>
+            <div style="display: inline-block; color: white; vertical-align: top; margin-top: 4px; font-family: Helvetica, sans-serif;">
+                Code generated by <a style="color: white; text-decoration: none; font-weight: bold;" href="https://openai.com/blog/openai-codex/">OpenAI Codex</a>
+            </div>
+        </div>
+    </body>
+    <div align='center'><a href='https://www.free-website-hit-counter.com'><img src='https://www.free-website-hit-counter.com/c.php?d=9&id=129522&s=1' border='0' alt='Free Website Hit Counter'></a><br / ><small><a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter">Free website hit counter</a></small></div>
+</html>
